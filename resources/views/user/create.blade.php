@@ -40,15 +40,6 @@
                 @enderror
                 </div>
             </div>
-            <div class="row mb-3">
-                <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
-                <div class="col-sm-10">
-                <input class="form-control" name="image" type="file" id="formFile">
-                @error('image')
-                    <span class="badge border-danger border-1 text-danger">{{ $message }}</span>
-                @enderror
-                </div>
-            </div>
 
             <div class="row mb-3">
                 <div class="col-sm-10">

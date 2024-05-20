@@ -24,8 +24,7 @@ class Create_user extends FormRequest
         return [
             "name" => ['required','string'],
             "email" => ['required','email','unique:users,email'],
-            "password" => ['required','min:8'],
-            "image" => ["required","mimes:jpg,jpeg,bmp,png"],
+            "password" => ['required','min:8']
         ];
     }
 }

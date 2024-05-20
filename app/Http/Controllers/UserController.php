@@ -29,9 +29,9 @@ class UserController extends Controller
         
         $validate = $request->validated();
 
-        $user = User::find(Auth::user()->id);
-        $extension = $request->file('image')->getClientOriginalExtension();
-        $imageName = $user->name.'-'.now()->timestamp.'.'.$extension;
+        // $user = User::find(Auth::user()->id);
+        // $extension = $request->file('image')->getClientOriginalExtension();
+        // $imageName = $user->name.'-'.now()->timestamp.'.'.$extension;
 
         // $file = $request->file('file');
         // $fileName = time() . '_' . $file->getClientOriginalName();
@@ -40,8 +40,7 @@ class UserController extends Controller
         User::create([
             'name' => $validate['name'],
             'email' => $validate['email'],
-            'password' => Hash::make($validate['password']),
-            'image' => $request->file('image')->storeAs('image', $imageName)
+            'password' => Hash::make($validate['password'])
         ]);
 
         // $data = new User;
@@ -66,15 +65,15 @@ class UserController extends Controller
     {
         $value = $request->validated();
 
-        $user = User::find(Auth::user()->id);
-        $extension = $request->file('image')->getClientOriginalExtension();
-        $imageName = $user->name.'-'.now()->timestamp.'.'.$extension;
+        // $user = User::find(Auth::user()->id);
+        // $extension = $request->file('image')->getClientOriginalExtension();
+        // $imageName = $user->name.'-'.now()->timestamp.'.'.$extension;
         
         User::find($id)->update([
             'name' => $value['name'],
             'email' => $value['email'],
             'password' => Hash::make($value['password']),
-            'image' => $request->file('image')->storeAs('image', $imageName)
+            // 'image' => $request->file('image')->storeAs('image', $imageName)
         ]);
 
         return redirect()->route('user');

@@ -7,10 +7,11 @@
 
         <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Create User</h5>
+            <h5 class="card-title">Edit User</h5>
 
             <!-- General Form Elements -->
             <form method="post" action="{{ route('update.user', $user->id) }}" enctype="multipart/form-data">
+                @method('POST')
             @csrf
             <div class="row mb-3">
                 <label for="inputText" class="col-sm-2 col-form-label">Name</label>
@@ -35,15 +36,6 @@
                 <div class="col-sm-10">
                 <input type="password" name="password" class="form-control">
                 @error('password')
-                    <span class="badge border-danger border-1 text-danger">{{ $message }}</span>
-                @enderror
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
-                <div class="col-sm-10">
-                <input class="form-control" name="image" type="file" id="formFile">
-                @error('image')
                     <span class="badge border-danger border-1 text-danger">{{ $message }}</span>
                 @enderror
                 </div>
